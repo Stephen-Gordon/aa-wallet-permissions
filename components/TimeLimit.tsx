@@ -65,7 +65,7 @@ export default function TimeLimit() {
                             <SelectValue placeholder="Select Time" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="60">1 minute</SelectItem>
+                            <SelectItem value="120">2 minute</SelectItem>
                             <SelectItem value="600">10 minutes</SelectItem>
                             <SelectItem value="1800">30 minutes</SelectItem>
                         </SelectContent>
@@ -76,7 +76,7 @@ export default function TimeLimit() {
                     <Button onClick={() => {
                         addPolicy(timestampPolicy)
                         toast({
-                            title: "Time Limit Policy Added",
+                            title: "Time Limit Policy pAdded",
                         })
                     }} className="w-full">Add Policy</Button>
                 </CardFooter>
