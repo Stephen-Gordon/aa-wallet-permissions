@@ -23,7 +23,7 @@ export type PolicyActions = {
 export type PolicyStore = PolicyState & PolicyActions
 
 export const initPolicyStore = (): PolicyState => {
-    return { policies: [], passkeyValidator: null, sessionKeyAccount: null, kernelClient: null, loggedIn: true }
+    return { policies: [], passkeyValidator: null, sessionKeyAccount: null, kernelClient: null, loggedIn: false }
     }
 
 export const defaultInitState: PolicyState = {
@@ -31,7 +31,7 @@ export const defaultInitState: PolicyState = {
     passkeyValidator: null,
     sessionKeyAccount: null,
     kernelClient: null,
-    loggedIn: true
+    loggedIn: false
 }
 
 export const createPolicyStore = (
