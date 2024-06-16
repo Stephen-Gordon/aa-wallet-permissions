@@ -42,7 +42,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    //if(!loggedIn) return
+    if(!loggedIn) return
     // update the session account and kernel if the policies change 
     const onPolicyChange = async () => {
         setIsReady(false)
@@ -78,7 +78,7 @@ export default function Home() {
         </div>
       )}
 
-      {!loggedIn && (
+      {loggedIn && (
         <>
           <h1 className="text-4xl font-bold">Zerodev Policies</h1>
           <p>Address: {kernelClient?.account?.address}</p>
