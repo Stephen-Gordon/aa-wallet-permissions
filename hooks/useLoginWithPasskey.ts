@@ -15,6 +15,7 @@ const useLoginWithPasskey = async () => {
         mode: WebAuthnMode.Login
     })
 
+    console.log("env", process.env.NEXT_PUBLIC_ZERODEV_ID)
     const passkeyValidator = await toPasskeyValidator(publicClient, {
         webAuthnKey,
         passkeyServerUrl: `https://passkeys.zerodev.app/api/v3/${process.env.NEXT_PUBLIC_ZERODEV_ID}`,

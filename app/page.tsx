@@ -42,6 +42,7 @@ export default function Home() {
 
 
   useEffect(() => {
+    if(!loggedIn) return
     // update the session account and kernel if the policies change 
     const onPolicyChange = async () => {
         const ska = await useCreateSessionKeyAccount({passkeyValidator, policies})
@@ -51,7 +52,7 @@ export default function Home() {
     }
     onPolicyChange()
 
-}, [policies])
+}, [policies, loggedIn])
 
 
   return (
