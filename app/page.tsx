@@ -43,14 +43,13 @@ export default function Home() {
 
   useEffect(() => {
     // update the session account and kernel if the policies change 
-    console.log(process.env.NEXT_PUBLIC_ZERODEV_ID ,"env")
     const onPolicyChange = async () => {
         const ska = await useCreateSessionKeyAccount({passkeyValidator, policies})
         setSessionKeyAccount(ska)
         const kc = await useCreateKernel(ska)
         setKernelClient(kc)
     }
-    //onPolicyChange()
+    onPolicyChange()
 
 }, [policies])
 
