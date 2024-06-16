@@ -76,7 +76,7 @@ export default function TimeLimit() {
                     <Button onClick={() => {
                         addPolicy(timestampPolicy)
                         toast({
-                            title: "Time Limit Policy pAdded",
+                            title: "Time Limit Policy Added",
                         })
                     }} className="w-full">Add Policy</Button>
                 </CardFooter>

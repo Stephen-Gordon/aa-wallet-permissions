@@ -23,7 +23,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 export default function Home() {
 
-  const { policies, setPasskeyValidator, passkeyValidator, sessionKeyAccount, kernelClient, setKernelClient, setSessionKeyAccount, setLoggedIn, loggedIn  } = usePolicyStore((state) => state)
+  const { policies, setPasskeyValidator, passkeyValidator, sessionKeyAccount, kernelClient, setKernelClient, setSessionKeyAccount, setLoggedIn, loggedIn, setIsReady, isReady  } = usePolicyStore((state) => state)
 
     
   // register a user
@@ -42,13 +42,15 @@ export default function Home() {
 
 
   useEffect(() => {
-    if(!loggedIn) return
+    //if(!loggedIn) return
     // update the session account and kernel if the policies change 
     const onPolicyChange = async () => {
+        setIsReady(false)
         const ska = await useCreateSessionKeyAccount({passkeyValidator, policies})
         setSessionKeyAccount(ska)
         const kc = await useCreateKernel(ska)
         setKernelClient(kc)
+        setIsReady(true)
     }
     onPolicyChange()
 
@@ -76,7 +78,7 @@ export default function Home() {
         </div>
       )}
 
-      {loggedIn && (
+      {!loggedIn && (
         <>
           <h1 className="text-4xl font-bold">Zerodev Policies</h1>
           <p>Address: {kernelClient?.account?.address}</p>

@@ -9,6 +9,7 @@ export type PolicyState = {
   sessionKeyAccount: any
   kernelClient: any
   loggedIn: boolean
+  isReady: boolean
 }
 
 export type PolicyActions = {
@@ -18,12 +19,13 @@ export type PolicyActions = {
     setSessionKeyAccount: (sessionKeyAccount: any) => void
     setKernelClient: (kernelClient: any) => void
     setLoggedIn: (loggedIn: boolean) => void
+    setIsReady: (isReady: boolean) => void
 }
 
 export type PolicyStore = PolicyState & PolicyActions
 
 export const initPolicyStore = (): PolicyState => {
-    return { policies: [], passkeyValidator: null, sessionKeyAccount: null, kernelClient: null, loggedIn: false }
+    return { policies: [], passkeyValidator: null, sessionKeyAccount: null, kernelClient: null, loggedIn: false, isReady: false }
     }
 
 export const defaultInitState: PolicyState = {
@@ -31,7 +33,8 @@ export const defaultInitState: PolicyState = {
     passkeyValidator: null,
     sessionKeyAccount: null,
     kernelClient: null,
-    loggedIn: false
+    loggedIn: false,
+    isReady: false
 }
 
 export const createPolicyStore = (
@@ -55,6 +58,7 @@ export const createPolicyStore = (
     setPasskeyValidator: (passkeyValidator: any) => set((state) => ({ passkeyValidator })),
     setSessionKeyAccount: (sessionKeyAccount: any) => set((state) => ({ sessionKeyAccount })),
     setKernelClient: (kernelClient: any) => set((state) => ({ kernelClient })),
-    setLoggedIn: (loggedIn: boolean) => set((state) => ({ loggedIn }))
+    setLoggedIn: (loggedIn: boolean) => set((state) => ({ loggedIn })),
+    setIsReady: (isReady: boolean) => set((state) => ({ isReady })),
   }))
 }
