@@ -1,34 +1,27 @@
 'use client'
-
+// state
 import { usePolicyStore } from "@/providers/policy-store-provider"
-
+// react
 import { useEffect} from "react"
 
+// hooks
+import { useLoginWithPasskey, useRegisterWithPasskey, useCreateKernel, useCreateSessionKeyAccount  } from "@/hooks"
 
-
-import useRegisterWithPasskey from "@/hooks/useRegisterWithPasskey"
-import { useLoginWithPasskey } from "@/hooks"
-
-import useCreateKernel from "@/hooks/useCreateKernel"
-
-import useCreateSessionKeyAccount from "@/hooks/useCreateSessionKeyAccount"
-
+// components
 import SpendingLimit from "@/components/SpendingLimit"
 import TimeLimit from "@/components/TimeLimit"
 import RateLimit from "@/components/RateLimit"
 import ActivePolicies from "@/components/ActivePolicies"
 import SendUsdc from "@/components/SendUsdc"
 
+// ui
 import { Button } from "@/components/ui"
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 
 
 
 export default function Home() {
-
-
 
   const { policies, setPasskeyValidator, passkeyValidator, sessionKeyAccount, kernelClient, setKernelClient, setSessionKeyAccount, setLoggedIn, loggedIn  } = usePolicyStore((state) => state)
 
