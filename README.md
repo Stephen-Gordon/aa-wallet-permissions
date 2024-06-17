@@ -3,8 +3,7 @@
 # Try it out
 https://aa-wallet-permissions.vercel.app
 
-
-https://github.com/Stephen-Gordon/aa-wallet-permissions/assets/91547618/51855b18-ffab-4064-9f78-e6be2a71a04d
+https://github.com/Stephen-Gordon/aa-wallet-permissions/assets/91547618/0315be70-ccf4-482d-8a23-f91824365838
 
 
 # Description
