@@ -23,55 +23,12 @@ const useCreateSessionKeyAccount = async ({ passkeyValidator, policies }: ICreat
 
     const entryPoint = ENTRYPOINT_ADDRESS_V07;
    
-
-    // Early return if passkeyValidator is not provided
-  /*   if (!passkeyValidator) {
-        console.log("No passkey validator");
-        return;
-    } */
-
-
-    console.log("Passkey validator:", passkeyValidator);
-    console.log("Creating session key account...");
-
-
-    
-    let num = 0.1
-    let value = parseUnits(num.toString(), 6)
-    const callPolicy = toCallPolicy({
-        permissions: [
-        {
-            // target address
-            target: "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
-            // Maximum value that can be transferred.  In this case we
-            // set it to zero so that no value transfer is possible.
-           
-            valueLimit: parseUnits("0.1", 6),
-            // Contract abi
-            abi: erc20Abi,
-            // Function name
-            functionName: "transfer",
-            // An array of conditions, each corresponding to an argument for
-            // the function.
-           /*  args: [
-            {
-                condition: ParamCondition.EQUAL,
-                value: num.toString() as `0x${string}`,
-                
-            },
-            null
-
-            ],   */
-        },
-        ],
-    })
     try {
         // Generate a private key for ECDSA signer
         const privateKey = generatePrivateKey();
         const ecdsaSigner = await toECDSASigner({
             signer: privateKeyToAccount(privateKey),
         });
-        console.log("ECDSA Signer:", ecdsaSigner);
 
         // Create a sudo policy
         const sudoPolicy = await toSudoPolicy({});
@@ -79,9 +36,7 @@ const useCreateSessionKeyAccount = async ({ passkeyValidator, policies }: ICreat
         // Create a permission validator
         const permissionValidator = await toPermissionValidator(publicClient, {
             signer: ecdsaSigner,
-            policies: policies?.length > 0 ? policies : [sudoPolicy],
-            //policies: [callPolicy, timestampPolicy],
-            
+            policies: policies?.length > 0 ? policies : [sudoPolicy],            
             entryPoint,
         });
         console.log("Permission Validator:", permissionValidator);
