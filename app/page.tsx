@@ -84,6 +84,7 @@ export default function Home() {
           <p>Address: {kernelClient?.account?.address}</p>
           <div>
             <p>Get some USDC from the Base Faucet <a className="text-blue-500" href="https://faucet.circle.com" target="_blank"></a></p>
+            <p>Try to set some policies for your smart account, then send some USDC. If you try to send a transaction that violates the policy, the transaction will fail</p>
           </div>
       
           <div className="grid gap-8 mt-16">
