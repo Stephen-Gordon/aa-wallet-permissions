@@ -88,11 +88,11 @@ export default function Home() {
           </div>
       
           <div className="grid gap-8 mt-16">
-            <div className="w-full grid grid-cols-2 gap-8">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
                 <SendUsdc/>
                 <ActivePolicies/>
               </div>
-              <div className="gap-8 grid grid-cols-2">
+              <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
                 <SpendingLimit/> 
                 <TimeLimit/>
                 <RateLimit/>
