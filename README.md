@@ -3,6 +3,9 @@
 # Try it out
 https://aa-wallet-permissions.vercel.app
 
+# Base Usdc Faucet
+https://faucet.circle.com/
+
 https://github.com/Stephen-Gordon/aa-wallet-permissions/assets/91547618/0315be70-ccf4-482d-8a23-f91824365838
 
 
